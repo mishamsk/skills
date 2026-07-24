@@ -1,0 +1,12 @@
+{
+  "name": "mishamsk-skills",
+  "owner": {
+    "name": "mishamsk"
+  },
+  "plugins": [
+    {
+      "name": "skills",
+      "source": "./"
+    }
+  ]
+}
