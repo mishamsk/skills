@@ -8,8 +8,19 @@ description: "Use uv for Python projects, dependencies, and scripts instead of p
 ```bash
 uv run script.py                   # Run a script
 uv run --with requests script.py   # Run with ad-hoc dependency
+uv run python -                    # Run Python from stdin
 uv add requests                    # Add dependency to project
 uv init --script foo.py            # Create script with inline metadata
+```
+
+## Inline Python
+
+Use uv's Python discovery and project environment for inline Python instead of invoking `python3` directly:
+
+```bash
+uv run python - <<'PY'
+print("Hello from inline Python")
+PY
 ```
 
 ## Inline Script Dependencies
