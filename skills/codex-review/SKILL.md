@@ -71,6 +71,9 @@ Format first if formatting can change line locations. Then it is OK to run tests
 scripts/codex-review --parallel-tests "<focused test command>"
 ```
 
+Resolve `scripts/codex-review` relative to this `SKILL.md`, not the current
+working directory.
+
 Tradeoff: tests may force code changes that stale the review. If tests or review lead to code edits, rerun the affected tests and rerun review until no accepted/actionable findings remain. Once that rerun exits cleanly, stop; do not spend another long review cycle on redundant confirmation.
 
 ## Context Efficiency
@@ -84,16 +87,10 @@ Run inline only for tiny changes or when subagents are unavailable.
 
 ## Helper
 
-Bundled helper:
+Bundled [helper](scripts/codex-review):
 
 ```bash
-~/.codex/skills/codex-review/scripts/codex-review --help
-```
-
-If installed from `agent-scripts`, path is:
-
-```bash
-/Users/steipete/Projects/agent-scripts/skills/codex-review/scripts/codex-review --help
+scripts/codex-review --help
 ```
 
 The helper:
