@@ -36,12 +36,14 @@ See [scripts.md](scripts.md) for full details on running scripts, locking, and r
 
 ## Bootstrap Projects
 
-Bootstrap new command-line applications with `uv init`; do not hand-write the initial `pyproject.toml`. A CLI is a packaged application, so use `--app --package` to create its `src/` layout and command entry point:
+Assume uv 0.12 or newer. Bootstrap packaged applications with plain `uv init`; it already creates the `uv_build` build system, `src/` layout, and command entry point. Do not hand-write the initial `pyproject.toml`:
 
 ```bash
-uv init --app --package my-cli
-uv init --app --package .
-mise x python@3.11 -- uv init --app --package --python python my-cli
+uv init my-cli
+uv init
+mise x python@3.11 -- uv init --python python my-cli
 ```
 
-Keep the generated `src/` layout, command entry point, and build-system constraint rather than replacing them with hand-written scaffolding or a copied `uv_build` version.
+Use `uv init --lib` for a library. Use `uv init --no-package` only when you intentionally want a flat, non-importable application without a build system.
+
+Keep the generated layout, entry point, and build-system constraint rather than replacing them with hand-written scaffolding or a copied `uv_build` version.
